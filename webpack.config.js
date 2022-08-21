@@ -1,4 +1,4 @@
-import WindiCSSWebpackPlugin from 'windicss-webpack-plugin'
+const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 
 const path = require('path');
 
