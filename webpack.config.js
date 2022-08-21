@@ -56,6 +56,12 @@ const config = {
 			},
 		],
 	},
+	resolve: {
+		alias: {
+			'react': 'inferno-compat',
+			'react-dom': 'inferno-compat'
+		}
+	}
 };
 
 module.exports = () => {
