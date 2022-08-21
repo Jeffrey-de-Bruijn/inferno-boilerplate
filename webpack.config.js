@@ -10,11 +10,10 @@ const config = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+		filename: 'bundle.js',
 	},
 	devServer: {
-		open: true,
-        hot: true,
+		hot: true,
 		host: 'localhost',
 	},
 	plugins: [
@@ -23,24 +22,13 @@ const config = {
 	module: {
 		rules: [
 			{
-				test: /\.css$/i,
-				use: [stylesHandler, 'css-loader'],
-			},
-			{
-				test: /\.less$/i,
-				use: ['less-loader'],
-			},
-			{
-				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: 'asset',
-			},
-			{
 				test: /\.m?js$/,
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
 					options: {
 						presets: [
+							"@babel/preset-env",
 							"@babel/preset-flow"
 						],
 						plugins: [
@@ -53,7 +41,19 @@ const config = {
 						]
 					}
 				}
-			}
+			},
+			{
+				test: /\.css$/i,
+				use: [stylesHandler, 'css-loader'],
+			},
+			{
+				test: /\.less$/i,
+				use: ['less-loader'],
+			},
+			{
+				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+				type: 'asset',
+			},
 		],
 	},
 };
