@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const isProduction = process.env.NODE_ENV == 'production';
-const stylesHandler = 'style-loader';
 
 const config = {
 	entry: './src/index.js',
@@ -53,7 +52,7 @@ const config = {
 			},
 			{
 				test: /\.css$/i,
-				use: [stylesHandler, 'css-loader'],
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.less$/i,
