@@ -22,6 +22,11 @@ const config = {
 	module: {
 		rules: [
 			{
+				// https://webpack.js.org/guides/asset-modules/
+				test: /\.(png|jpe?g|gif|svg)$/i,
+				type: "asset/resource",
+			},
+			{
 				test: /\.m?js$/,
 				exclude: /node_modules/,
 				use: {
