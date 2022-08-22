@@ -1,9 +1,8 @@
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const isProduction = process.env.NODE_ENV == 'production';
-
 const stylesHandler = 'style-loader';
 
 const config = {
@@ -17,17 +16,21 @@ const config = {
 		host: 'localhost',
 	},
 	plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			template: './src/index.html'
+		}),
 		new WindiCSSWebpackPlugin(),
 	],
 	module: {
 		rules: [
 			{
 				// https://webpack.js.org/guides/asset-modules/
-				test: /\.(png|jpe?g|gif|svg)$/i,
+				test: /\.(png|jpe?g|gif|svg|ttf|woff2)$/i,
 				type: "asset/resource",
 			},
 			{
-				test: /\.m?js$/,
+				test: /\.m?jsx?$/,
 				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader',
