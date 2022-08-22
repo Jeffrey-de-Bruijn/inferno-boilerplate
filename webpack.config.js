@@ -40,6 +40,7 @@ const config = {
 							"@babel/preset-flow"
 						],
 						plugins: [
+							"@babel/plugin-syntax-jsx",
 							[
 								"babel-plugin-inferno",
 								{
