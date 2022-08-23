@@ -21,6 +21,7 @@
     "inferno": "^8.0.3",
     "inferno-compat": "^8.0.3",
     "inferno-create-element": "^8.0.3",
+    "inferno-i18next-dess": "^0.0.1",
     "inferno-router": "^8.0.3"
   },
   "devDependencies": {
