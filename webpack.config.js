@@ -1,5 +1,7 @@
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const path = require('path');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const isProduction = process.env.NODE_ENV == 'production';
@@ -20,48 +22,53 @@ const config = {
 			template: './src/index.html'
 		}),
 		new WindiCSSWebpackPlugin(),
+		new MiniCssExtractPlugin(),
 	],
-	module: {
-		rules: [
-			{
-				// https://webpack.js.org/guides/asset-modules/
-				test: /\.(png|jpe?g|gif|svg|ttf|woff2)$/i,
-				type: "asset/resource",
-			},
-			{
-				test: /\.m?jsx?$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [
-							"@babel/preset-env",
-							"@babel/preset-flow"
-						],
-						plugins: [
-							[
-								"babel-plugin-inferno",
-								{
-									"imports": true
-								}
-							]
-						]
-					}
-				}
-			},
-			{
-				test: /\.css$/i,
-				use: ['style-loader', 'css-loader'],
-			},
-			{
-				test: /\.less$/i,
-				use: ['less-loader'],
-			},
-			{
-				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: 'asset',
-			},
+	optimization: {
+		minimizer: [
+			`...`,
+			new CssMinimizerPlugin(),
 		],
+	},
+	module: {
+		rules: [{
+			// https://webpack.js.org/guides/asset-modules/
+			test: /\.(png|jpe?g|gif|svg|ttf|woff2)$/i,
+			type: "asset/resource",
+		},
+		{
+			test: /\.m?jsx?$/,
+			exclude: /node_modules/,
+			use: {
+				loader: 'babel-loader',
+				options: {
+					presets: [
+						"@babel/preset-env",
+						"@babel/preset-flow"
+					],
+					plugins: [
+						[
+							"babel-plugin-inferno",
+							{
+								"imports": true
+							}
+						]
+					]
+				}
+			}
+		},
+		{
+			test: /\.css$/i,
+			use: ['style-loader', 'css-loader'],
+		},
+		{
+			test: /\.less$/i,
+			use: ['less-loader'],
+		},
+		{
+			test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+			type: 'asset',
+		}],
 	},
 	resolve: {
 		alias: {
