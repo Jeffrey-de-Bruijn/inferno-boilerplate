@@ -71,6 +71,8 @@ const config = {
     ignored: '**/node_modules',
   },
   resolve: {
+    // defaults to ['.js', '.json', '.wasm']
+    extensions: ['.js', '.jsx'],
     alias: {
       'react': 'inferno-compat',
       'react-dom': 'inferno-compat'
