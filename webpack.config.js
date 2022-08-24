@@ -58,12 +58,8 @@ const config = {
 			}
 		},
 		{
-			test: /\.css$/i,
-			use: ['style-loader', 'css-loader'],
-		},
-		{
-			test: /\.less$/i,
-			use: ['less-loader'],
+			test: /\.(le|c)ss$/i,
+			use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
 		},
 		{
 			test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
