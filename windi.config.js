@@ -2,6 +2,6 @@ import { defineConfig } from 'windicss/helpers'
 
 export default defineConfig({
     extract: {
-        include: ['./src/**/*.{html,js,jsx,css}'],
+        include: ['./src/**/*.{html,js,jsx}'],
     },
 })
