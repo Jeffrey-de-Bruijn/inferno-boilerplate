@@ -75,7 +75,8 @@ const config = {
     extensions: ['.js', '.jsx'],
     alias: {
       'react': 'inferno-compat',
-      'react-dom': 'inferno-compat'
+      'react-dom': 'inferno-compat',
+      inferno: path.resolve(__dirname, 'node_modules/inferno/dist', isProduction ? 'index.dev.esm.js' : 'index.esm.js')
     }
   }
 };
