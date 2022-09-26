@@ -2,49 +2,51 @@
   "private": true,
   "name": "inferno-boilerplate",
   "version": "1.1.0",
-  "description": "With Less, Windi, Flow",
+  "description": "Webpack, Less, Flow",
   "source": "src/index.html",
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production --node-env=production",
     "flow": "flow",
-    "start": "webpack-dev-server --mode=development"
+    "dev": "webpack-dev-server --mode=development",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   },
   "keywords": [
     "inferno",
     "flow",
-    "windi",
-    "less"
+    "less",
+    "webpack"
   ],
   "author": "Jeffrey de Bruijn",
   "license": "NSCA",
   "dependencies": {
     "inferno": "^8.0.3",
-    "inferno-compat": "^8.0.3",
-    "inferno-create-element": "^8.0.3",
-    "inferno-i18next-dess": "^0.0.1",
-    "inferno-router": "^8.0.3"
+    "inferno-hydrate": "^8.0.3",
+    "inferno-i18next-dess": "^0.0.2",
+    "inferno-router": "^8.0.3",
+    "inferno-server": "^8.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
-    "@babel/core": "^7.12.0",
-    "@babel/preset-env": "^7.18.10",
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
     "@babel/preset-flow": "^7.18.6",
     "@webpack-cli/generators": "^2.5.0",
-    "clean-webpack-plugin": "^4.0.0",
     "babel-loader": "^8.2.5",
     "babel-plugin-inferno": "^6.5.0",
-    "html-webpack-plugin": "^5.5.0",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
-    "eslint": "^8.22.0",
-    "eslint-plugin-inferno": "^7.30.1",
-    "flow-bin": "^0.185.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "flow-bin": "^0.187.1",
+    "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.3",
     "less-loader": "^11.0.0",
-    "css-minimizer-webpack-plugin": "^4.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.10.0",
-    "windicss-webpack-plugin": "^1.7.5"
+    "webpack-dev-server": "^4.11.1",
+    "workbox-webpack-plugin": "^6.5.4"
   }
 }
